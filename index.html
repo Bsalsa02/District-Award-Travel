@@ -62,22 +62,85 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:64px 52px;text-align:c
 .stat-num{font-family:'Orbitron',sans-serif;font-size:30px;font-weight:900;color:var(--amber);display:block;margin-bottom:6px;}
 .stat-txt{font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
 
-/* OFFER */
-#offer{padding:110px 52px;}
-.offer-wrap{max-width:880px;margin:0 auto;}
-.s-label{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:4px;color:var(--amber);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.s-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--amber);}
-.offer-box{border:1px solid rgba(212,175,55,.28);background:linear-gradient(140deg,rgba(212,175,55,.04) 0%,rgba(255,140,0,.02) 100%);padding:60px 68px;position:relative;overflow:hidden;animation:fadeUp .7s ease .1s both;}
-.offer-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--amber),transparent);}
-.offer-box::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(255,140,0,.05) 0%,transparent 60%);pointer-events:none;}
-.corner-tr{position:absolute;top:-1px;right:-1px;width:52px;height:52px;border-top:2px solid var(--amber);border-right:2px solid var(--amber);}
-.corner-bl{position:absolute;bottom:-1px;left:-1px;width:52px;height:52px;border-bottom:2px solid var(--amber);border-left:2px solid var(--amber);}
-.offer-title{font-family:'Orbitron',sans-serif;font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:24px;}
-.offer-body{font-size:20px;line-height:1.75;color:var(--white);margin-bottom:34px;max-width:680px;}
-.offer-body strong{color:var(--amber);font-weight:700;}
-.offer-tag{display:inline-flex;align-items:center;gap:10px;font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;padding:11px 22px;border:1px solid rgba(212,175,55,.4);background:rgba(212,175,55,.05);}
-.offer-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.8s infinite;}
+/* THE PROTOCOL */
+.protocol-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+    margin-top: 30px; 
+}
+.p-step { 
+    border: 1px solid rgba(255,255,255,0.05); 
+    background: rgba(0,0,0,0.2); 
+    padding: 30px; 
+    position: relative; 
+    overflow: hidden; 
+    transition: transform 0.3s, background 0.3s; 
+}
+.p-step:hover { 
+    transform: translateY(-3px); 
+    background: rgba(255,255,255,0.03); 
+}
+.p-num { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 32px; 
+    font-weight: 900; 
+    color: var(--amber); 
+    opacity: 0.9; 
+    margin-bottom: 12px; 
+}
+.p-title { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--white); 
+    letter-spacing: 2px; 
+    margin-bottom: 8px; 
+}
+.p-desc { 
+    font-size: 16px; 
+    color: var(--muted); 
+    line-height: 1.6; 
+}
 
+/* Step 2: Data Pulse Animation */
+.pulse-step { 
+    border-left: 2px solid var(--amber); 
+}
+.pulse-step::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    width: 2px; 
+    background: var(--amber); 
+    box-shadow: 0 0 15px var(--amber); 
+    animation: pulse 1.5s infinite; 
+}
+
+/* Step 4: Unlock */
+.unlock-step { 
+    border: 1px solid var(--gold); 
+    background: linear-gradient(140deg, rgba(212,175,55,0.05), transparent); 
+}
+.unlock-step .p-num { 
+    color: var(--gold); 
+}
+
+.protocol-footer { 
+    margin-top: 24px; 
+    font-size: 13px; 
+    color: var(--muted); 
+    font-style: italic; 
+    letter-spacing: 1px; 
+    text-align: center; 
+}
+
+/* Make it a 2-column grid on larger screens */
+@media(min-width: 768px) {
+  .protocol-grid { grid-template-columns: repeat(2, 1fr); }
+}
 /* WINS */
 #wins{padding:80px 52px 110px;}
 .wins-hdr{max-width:900px;margin:0 auto 52px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;}
@@ -168,25 +231,44 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:64px 52px;text-align:c
   <div class="stat-item"><span class="stat-num">3 Days</span><span class="stat-txt">Response Time</span></div>
 </div>
 
-<!-- OFFER -->
-<section id="offer">
+<!-- PROTOCALL -->
+<div id="offer">
   <div class="offer-wrap">
-    <div class="s-label">The Proposition</div>
-    <div class="offer-box">
-      <div class="corner-tr"></div>
-      <div class="corner-bl"></div>
-      <div class="offer-title">Student Entrepreneur Pilot Program</div>
-      <p class="offer-body">
-        I find a deal that saves you <strong>$500 or more</strong> — whether that's Business Class to London, a family trip to Venice, or a long-haul adventure — or you <strong>pay $0</strong>.<br><br>
-        No retainers. No hourly fees. A pure <strong>success-fee model</strong>: you only pay when I deliver real savings. I'll respond within <strong>3 business days</strong> with your personalized assessment.
-      </p>
-      <div class="offer-tag">
-        <div class="dot"></div>
-        Zero Risk &nbsp;·&nbsp; Success-Fee Only &nbsp;·&nbsp; Serving Bethesda Families
+    <div class="s-label">Mission Architecture</div>
+    <h2 class="offer-title">THE PROTOCOL</h2>
+    <p class="offer-body">This isn't a simple flight search. It is a calculated strike on airline award availability. Here is the exact process from request to booking.</p>
+
+    <div class="protocol-grid">
+      <div class="p-step">
+        <div class="p-num">01</div>
+        <div class="p-title">INTELLIGENCE GATHERING</div>
+        <div class="p-desc">You submit your Points Inventory and destination goals via the Secure Request Form.</div>
+      </div>
+
+      <div class="p-step pulse-step">
+        <div class="p-num">02</div>
+        <div class="p-title">THE DATA PULSE</div>
+        <div class="p-desc">I perform a deep-cache scan across 40+ global airline partners to find 'Unicorn' award availability (Business Class seats at Economy prices).</div>
+      </div>
+
+      <div class="p-step">
+        <div class="p-num">03</div>
+        <div class="p-title">MISSION TEASER</div>
+        <div class="p-desc">I send you a flight summary showing the exact value found (e.g., "$4,500 Flight for 60k Points").</div>
+      </div>
+
+      <div class="p-step unlock-step">
+        <div class="p-num">04</div>
+        <div class="p-title">SECURE THE ROUTE</div>
+        <div class="p-desc">You pay the flat-rate Success Fee ($75/person). In return, I send the encrypted booking manual with exact transfer instructions and flight links.</div>
       </div>
     </div>
+
+    <div class="protocol-footer">
+      * If the Data Pulse returns zero results, the mission is aborted at no cost to you.
+    </div>
   </div>
-</section>
+</div>
 
 <!-- WINS — only the 2 real ones -->
 <section id="wins">
