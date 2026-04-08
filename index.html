@@ -347,9 +347,6 @@ python3 << 'PYEOF'
 with open('/mnt/user-data/outputs/apply.html', 'r') as f:
     apply = f.read()
 
-old_foot = '<div class="foot-sub">Founded 2026 &nbsp;·&nbsp; Bethesda, MD &nbsp;·&nbsp; IAD · DCA · BWI</div>'
-new_foot = '<div class="foot-sub">Founded 2026 &nbsp;·&nbsp; Bethesda, MD &nbsp;·&nbsp; IAD · DCA · BWI<br><a href="terms.html" style="color:var(--muted);font-size:11px;text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(122,122,130,.3);">Terms &amp; Conditions</a></div>'
-
 apply = apply.replace(old_foot, new_foot)
 with open('/mnt/user-data/outputs/apply.html', 'w') as f:
     f.write(apply)
