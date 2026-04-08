@@ -342,10 +342,6 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:64px 52px;text-align:c
 </script>
 </body>
 </html>
-python3 << 'PYEOF'
-# Add terms link to apply.html footer
-with open('/mnt/user-data/outputs/apply.html', 'r') as f:
-    apply = f.read()
 
 apply = apply.replace(old_foot, new_foot)
 with open('/mnt/user-data/outputs/apply.html', 'w') as f:
