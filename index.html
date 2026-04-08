@@ -342,3 +342,29 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:64px 52px;text-align:c
 </script>
 </body>
 </html>
+python3 << 'PYEOF'
+# Add terms link to apply.html footer
+with open('/mnt/user-data/outputs/apply.html', 'r') as f:
+    apply = f.read()
+
+old_foot = '<div class="foot-sub">Founded 2026 &nbsp;·&nbsp; Bethesda, MD &nbsp;·&nbsp; IAD · DCA · BWI</div>'
+new_foot = '<div class="foot-sub">Founded 2026 &nbsp;·&nbsp; Bethesda, MD &nbsp;·&nbsp; IAD · DCA · BWI<br><a href="terms.html" style="color:var(--muted);font-size:11px;text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(122,122,130,.3);">Terms &amp; Conditions</a></div>'
+
+apply = apply.replace(old_foot, new_foot)
+with open('/mnt/user-data/outputs/apply.html', 'w') as f:
+    f.write(apply)
+
+# Add terms link to index.html footer
+with open('/mnt/user-data/outputs/index.html', 'r') as f:
+    index = f.read()
+
+# Add terms to footer bottom area
+old_bottom = '<span>SUCCESS FEE = 10% OF SAVINGS · MINIMUM SAVINGS $200 · $0 IF NO DEAL FOUND</span>'
+new_bottom = '<span>SUCCESS FEE = 10% OF SAVINGS · MINIMUM SAVINGS $200 · $0 IF NO DEAL FOUND</span>\n    <a href="terms.html" style="color:var(--muted2);font-family:var(--mono);font-size:9px;letter-spacing:1px;text-decoration:none;border-bottom:1px solid rgba(74,74,88,.5);">Terms &amp; Conditions</a>'
+
+index = index.replace(old_bottom, new_bottom)
+with open('/mnt/user-data/outputs/index.html', 'w') as f:
+    f.write(index)
+
+print("Links added to apply.html and index.html")
+PYEOF
