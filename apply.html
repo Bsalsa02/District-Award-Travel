@@ -414,39 +414,27 @@ footer {
   .prog-step .prog-label {display:none;}
   .page {padding-left:16px;padding-right:16px;}
 } 
-  /* --- ALIGNMENT PATCH START --- */
-
-/* Force the container to a 50/50 Grid */
-.form-row {
+ /* THE RESET: Forces the first two rows to behave */
+form div:nth-child(-n+2).form-row, 
+form div:nth-child(-n+2) {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 20px !important;
-    margin-bottom: 25px !important;
-    align-items: end; /* Keeps labels and inputs aligned horizontally */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-/* Reset the groups inside the row */
-.form-group {
-    display: flex !important;
-    flex-direction: column !important;
+/* Forces the inputs inside those rows to be identical */
+form div:nth-child(-n+2) .form-group input {
     width: 100% !important;
-}
-
-/* Ensure the input fills the grid half exactly */
-.form-group input, 
-.form-group select {
-    width: 100% !important;
+    display: block !important;
     box-sizing: border-box !important;
+    flex: none !important;
 }
-
-/* Ensures they stack properly on mobile devices */
-@media (max-width: 600px) {
-    .form-row {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-/* --- ALIGNMENT PATCH END --- */
 </style>
 </head>
 <body>
